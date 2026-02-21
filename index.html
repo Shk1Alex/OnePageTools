@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My Tools</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>My Tools</h1>
+      <p class="lead">
+        Choose a tool - it will open in a popup without reloading the page
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <a
+            class="tool-link"
+            href="https://shk1alex.github.io/webhookTool/"
+            data-url="https://shk1alex.github.io/webhookTool/"
+          >
+            Webhook Tool ↗
+          </a>
+          <p class="tool-desc">
+            Tool for working with webhooks: checking and generation
+          </p>
+        </div>
+
+        <div class="card">
+          <a
+            class="tool-link"
+            href="https://shk1alex.github.io/tokenReader/"
+            data-url="https://shk1alex.github.io/tokenReader/"
+          >
+            Token Reader ↗
+          </a>
+          <p class="tool-desc">
+            Unfolding and parsing a token into JSON with information about the shop and request objects
+          </p>
+        </div>
+
+        <div class="card">
+          <a
+            class="tool-link"
+            href="https://shk1alex.github.io/JsonDiff/"
+            data-url="https://shk1alex.github.io/JsonDiff/"
+          >
+            JSON Diff ↗
+          </a>
+          <p class="tool-desc">
+            Comparison of two JSONs: "unfolding and comparison in two modes".
+          </p>
+        </div>
+      </div>
+
+      <div class="hint">
+        Hint: you can close the popup by clicking on the overlay, the “Close” button or <code class="kbd">Esc</code>.
+      </div>
+    </div>
+
+    <div
+      class="modal"
+      id="modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="modal-panel" role="document">
+        <div class="modal-bar">
+          <div class="modal-title" id="modalTitle">Opened: ...</div>
+          <button class="btn" id="openNewTabBtn" type="button">
+            Open in new tab
+          </button>
+          <button class="btn" id="closeBtn" type="button">Close</button>
+        </div>
+        <iframe
+          class="modal-iframe"
+          id="modalFrame"
+          title="Tool preview"
+        ></iframe>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

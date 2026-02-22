@@ -9,7 +9,10 @@
   <body>
     <div class="wrap">
       <h1>My Tools</h1>
-      <p class="lead">Choose a tool (CLICK THE NAME) - it will open in a popup without reloading the page</p>
+      <p class="lead">
+        Choose a tool (CLICK THE NAME) - it will open in a popup without
+        reloading the page
+      </p>
 
       <div class="grid">
         <div class="card">
@@ -27,8 +30,18 @@
             result in hex(signature) or base64(signature)
           </p>
           <div class="examples">
-            <a href="#" class="example-link" data-image="images/generate-webhook.png">Generate Example</a>
-            <a href="#" class="example-link" data-image="images/verify-webhook.png">Verify Example</a>
+            <a
+              href="#"
+              class="example-link"
+              data-image="images/generate-webhook.png"
+              >Generate Example</a
+            >
+            <a
+              href="#"
+              class="example-link"
+              data-image="images/verify-webhook.png"
+              >Verify Example</a
+            >
           </div>
         </div>
 
@@ -41,10 +54,13 @@
             Token Reader ↗
           </a>
           <p class="tool-desc">
-            Unfolding and parsing a token into JSON with information about the shop and request objects
+            Unfolding and parsing a token into JSON with information about the
+            shop and request objects
           </p>
           <div class="examples">
-            <a href="#" class="example-link" data-image="images/token.png">Decode Example</a>
+            <a href="#" class="example-link" data-image="images/token.png"
+              >Decode Example</a
+            >
           </div>
         </div>
 
@@ -59,11 +75,22 @@
           <p class="tool-desc">
             Comparison of two JSONs:<br />
             unfolding and comparison in two modes:<br />
-            Line-by-line comparison and structure-aware(structural key-based) comparison
+            Line-by-line comparison and structure-aware(structural key-based)
+            comparison
           </p>
           <div class="examples">
-            <a href="#" class="example-link" data-image="images/line-based-compare.png">Line-by-line Example</a>
-            <a href="#" class="example-link" data-image="images/jsonaware-compare.png">Structure-aware Example</a>
+            <a
+              href="#"
+              class="example-link"
+              data-image="images/line-based-compare.png"
+              >Line-by-line Example</a
+            >
+            <a
+              href="#"
+              class="example-link"
+              data-image="images/jsonaware-compare.png"
+              >Structure-aware Example</a
+            >
           </div>
         </div>
 
@@ -72,68 +99,99 @@
             Telegram Bot Overview ↗
           </a>
           <p class="tool-desc">
-            Authorization logic, features, state machine flow and deployment details
+            Authorization logic, features, state machine flow and deployment
+            details
           </p>
           <div class="examples">
-            <a href="#" class="example-link" data-image="images/create-template.png">Create Template Example</a>
-            <a href="#" class="example-link" data-image="images/send-notification.png">Send Notification Example</a>
+            <a
+              href="#"
+              class="example-link"
+              data-image="images/create-template.png"
+              >Create Template Example</a
+            >
+            <a
+              href="#"
+              class="example-link"
+              data-image="images/send-notification.png"
+              >Send Notification Example</a
+            >
           </div>
         </div>
         <div class="card">
-  <a class="tool-link" href="#" data-action="custom-links">
-    Custom Useful Links ↗
-  </a>
-  <p class="tool-desc">
-    Personal saved links list (stored in your browser)
-  </p>
-</div>
+          <a class="tool-link" href="#" data-action="custom-links">
+            Custom Useful Links ↗
+          </a>
+          <p class="tool-desc">
+            Personal saved links list<br />
+            Add a link once and it will be saved in your browser (local storage) until you remove it
+          </p>
+        </div>
       </div>
 
       <div class="hint">
-        Hint: you can close the popup by clicking on the overlay, the “Close” button or <code class="kbd">Esc</code>
+        Hint: you can close the popup by clicking on the overlay, the “Close”
+        button or <code class="kbd">Esc</code>
       </div>
     </div>
 
-    <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div
+      class="modal"
+      id="modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+    >
       <div class="modal-panel" role="document">
         <div class="modal-bar">
           <div class="modal-title" id="modalTitle">Opened: ...</div>
-          <button class="btn" id="openNewTabBtn" type="button">Open in new tab</button>
+          <button class="btn" id="openNewTabBtn" type="button">
+            Open in new tab
+          </button>
           <button class="btn" id="closeBtn" type="button">Close</button>
         </div>
 
         <div class="modal-content">
-  <iframe class="modal-iframe" id="modalFrame" title="Tool preview"></iframe>
-  <img class="modal-image" id="modalImage" alt="Example preview" />
-  <div class="modal-custom" id="modalCustom">
-  <div class="custom-links">
-    <div class="custom-links-header">
-      <div class="custom-links-title">Custom Useful Links</div>
-      <div class="custom-links-actions">
-        <button class="icon-btn" type="button" id="addLinkBtn">Add link</button>
-      </div>
-    </div>
+          <iframe
+            class="modal-iframe"
+            id="modalFrame"
+            title="Tool preview"
+          ></iframe>
+          <img class="modal-image" id="modalImage" alt="Example preview" />
+          <div class="modal-custom" id="modalCustom">
+            <div class="custom-links">
+              <div class="custom-links-header">
+                <div class="custom-links-title">Custom Useful Links</div>
+                <div class="custom-links-actions">
+                  <button class="icon-btn" type="button" id="addLinkBtn">
+                    Add link
+                  </button>
+                </div>
+              </div>
 
-    <div class="form" id="linkForm">
-      <div class="field">
-        <div class="label">Name</div>
-        <input class="input" id="linkName" type="text" />
-      </div>
-      <div class="field">
-        <div class="label">URL</div>
-        <input class="input" id="linkUrl" type="text" />
-      </div>
-      <div class="error" id="formError"></div>
-      <div class="form-actions">
-        <button class="btn" type="button" id="saveLinkBtn">Save</button>
-        <button class="btn" type="button" id="cancelLinkBtn">Cancel</button>
-      </div>
-    </div>
+              <div class="form" id="linkForm">
+                <div class="field">
+                  <div class="label">Name</div>
+                  <input class="input" id="linkName" type="text" />
+                </div>
+                <div class="field">
+                  <div class="label">URL</div>
+                  <input class="input" id="linkUrl" type="text" />
+                </div>
+                <div class="error" id="formError"></div>
+                <div class="form-actions">
+                  <button class="btn" type="button" id="saveLinkBtn">
+                    Save
+                  </button>
+                  <button class="btn" type="button" id="cancelLinkBtn">
+                    Cancel
+                  </button>
+                </div>
+              </div>
 
-    <ul class="custom-links-list" id="linksList"></ul>
-  </div>
-</div>
-</div>
+              <ul class="custom-links-list" id="linksList"></ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

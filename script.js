@@ -1,39 +1,78 @@
 (function () {
   const modal = document.getElementById("modal");
   const frame = document.getElementById("modalFrame");
+  const img = document.getElementById("modalImage");
   const title = document.getElementById("modalTitle");
   const closeBtn = document.getElementById("closeBtn");
   const openNewTabBtn = document.getElementById("openNewTabBtn");
 
   let currentUrl = "";
 
-  function openModal(url) {
-    currentUrl = url;
-    title.textContent = "Opened: " + url;
-    frame.src = url;
+  function showModal() {
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
     closeBtn.focus();
   }
 
-  function closeModal() {
+  function hideModal() {
     modal.setAttribute("aria-hidden", "true");
-    frame.src = "about:blank";
-    currentUrl = "";
     document.body.style.overflow = "";
   }
 
-  document.addEventListener("click", (e) => {
-    const link = e.target.closest("a[data-url]");
-    if (!link) return;
+  function openUrlModal(url) {
+    currentUrl = url;
+    title.textContent = "Opened: " + url;
 
-    e.preventDefault();
-    openModal(link.dataset.url);
+    img.style.display = "none";
+    img.src = "";
+
+    frame.style.display = "block";
+    frame.src = url;
+
+    openNewTabBtn.style.display = "inline-block";
+    showModal();
+  }
+
+  function openImageModal(src) {
+    currentUrl = "";
+    title.textContent = "Example: " + src;
+
+    frame.style.display = "none";
+    frame.src = "about:blank";
+
+    img.style.display = "block";
+    img.src = src;
+
+    openNewTabBtn.style.display = "none";
+    showModal();
+  }
+
+  function closeModal() {
+    hideModal();
+    frame.src = "about:blank";
+    frame.style.display = "none";
+    img.src = "";
+    img.style.display = "none";
+    currentUrl = "";
+  }
+
+  document.addEventListener("click", (e) => {
+    const example = e.target.closest(".example-link");
+    if (example) {
+      e.preventDefault();
+      openImageModal(example.dataset.image);
+      return;
+    }
+
+    const link = e.target.closest("a[data-url]");
+    if (link) {
+      e.preventDefault();
+      openUrlModal(link.dataset.url);
+    }
   });
 
   modal.addEventListener("click", (e) => {
-    const panel = e.target.closest(".modal-panel");
-    if (!panel) closeModal();
+    if (!e.target.closest(".modal-panel")) closeModal();
   });
 
   closeBtn.addEventListener("click", closeModal);
@@ -44,10 +83,7 @@
   });
 
   document.addEventListener("keydown", (e) => {
-    if (
-      e.key === "Escape" &&
-      modal.getAttribute("aria-hidden") === "false"
-    ) {
+    if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
       closeModal();
     }
   });

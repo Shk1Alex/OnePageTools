@@ -9,9 +9,7 @@
   <body>
     <div class="wrap">
       <h1>My Tools</h1>
-      <p class="lead">
-        Choose a tool - it will open in a popup without reloading the page
-      </p>
+      <p class="lead">Choose a tool - it will open in a popup without reloading the page</p>
 
       <div class="grid">
         <div class="card">
@@ -28,6 +26,10 @@
             signature = HMAC-SHA256(signingKey, rawWebhookBody)<br />
             result in hex(signature) or base64(signature)
           </p>
+          <div class="examples">
+            <a href="#" class="example-link" data-image="images/generate-webhook.png">Generate Example</a>
+            <a href="#" class="example-link" data-image="images/verify-webhook.png">Verify Example</a>
+          </div>
         </div>
 
         <div class="card">
@@ -39,9 +41,11 @@
             Token Reader ↗
           </a>
           <p class="tool-desc">
-            Unfolding and parsing a token into JSON with information about the
-            shop and request objects
+            Unfolding and parsing a token into JSON with information about the shop and request objects
           </p>
+          <div class="examples">
+            <a href="#" class="example-link" data-image="images/token.png">Decode Example</a>
+          </div>
         </div>
 
         <div class="card">
@@ -55,47 +59,45 @@
           <p class="tool-desc">
             Comparison of two JSONs:<br />
             unfolding and comparison in two modes:<br />
-            Line-by-line comparison and structure-aware(structural key-based)
-            comparison
+            Line-by-line comparison and structure-aware(structural key-based) comparison
           </p>
+          <div class="examples">
+            <a href="#" class="example-link" data-image="images/line-based-compare.png">Line-by-line Example</a>
+            <a href="#" class="example-link" data-image="images/jsonaware-compare.png">Structure-aware Example</a>
+          </div>
         </div>
+
         <div class="card">
-          <a class="tool-link" data-url="bot-info.html">
-            Telegram Bot Overview
+          <a class="tool-link" href="bot-info.html" data-url="bot-info.html">
+            Telegram Bot Overview ↗
           </a>
           <p class="tool-desc">
-            Authorization logic, features, state machine flow and deployment
-            details.
+            Authorization logic, features, state machine flow and deployment details.
           </p>
+          <div class="examples">
+            <a href="#" class="example-link" data-image="images/create-template.png">Create Template Example</a>
+            <a href="#" class="example-link" data-image="images/send-notification.png">Send Notification Example</a>
+          </div>
         </div>
       </div>
 
       <div class="hint">
-        Hint: you can close the popup by clicking on the overlay, the “Close”
-        button or <code class="kbd">Esc</code>.
+        Hint: you can close the popup by clicking on the overlay, the “Close” button or <code class="kbd">Esc</code>.
       </div>
     </div>
 
-    <div
-      class="modal"
-      id="modal"
-      aria-hidden="true"
-      role="dialog"
-      aria-modal="true"
-    >
+    <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
       <div class="modal-panel" role="document">
         <div class="modal-bar">
           <div class="modal-title" id="modalTitle">Opened: ...</div>
-          <button class="btn" id="openNewTabBtn" type="button">
-            Open in new tab
-          </button>
+          <button class="btn" id="openNewTabBtn" type="button">Open in new tab</button>
           <button class="btn" id="closeBtn" type="button">Close</button>
         </div>
-        <iframe
-          class="modal-iframe"
-          id="modalFrame"
-          title="Tool preview"
-        ></iframe>
+
+        <div class="modal-content">
+          <iframe class="modal-iframe" id="modalFrame" title="Tool preview"></iframe>
+          <img class="modal-image" id="modalImage" alt="Example preview" />
+        </div>
       </div>
     </div>
 

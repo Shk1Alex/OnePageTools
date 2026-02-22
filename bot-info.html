@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Telegram Bot Overview</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: #0b1020;
+      color: #e8ecff;
+      line-height: 1.6;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    h3 {
+      margin-top: 28px;
+      color: #7aa2ff;
+    }
+
+    ul {
+      margin: 8px 0 16px 20px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .section {
+      margin-bottom: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Telegram Notification Bot - Overview</h2>
+
+  <div class="section">
+    <p>
+      Any Telegram user can request <b>/myid</b> - the bot returns their Telegram ID.
+      With this ID, the user contacts an administrator (any authorized user) to be added to the whitelist.
+      After being added, the user becomes authorized and can use the bot’s functionality.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Authorization Logic</h3>
+    <ul>
+      <li>If the whitelist is not empty, the bot responds only to users in the whitelist.</li>
+      <li><b>/myid</b> is always available to everyone.</li>
+      <li>If the whitelist is empty, the bot responds to everyone.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Core Behavior</h3>
+    <ul>
+      <li>The bot accepts <b>/start</b>.</li>
+      <li>Interactive commands work via state machine (step-by-step flow).</li>
+      <li>Unknown commands outside active state trigger a hint to use <b>/start</b>.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Features</h3>
+    <ul>
+      <li><b>/links</b> - display stored links</li>
+      <li><b>/chats</b> - list known chats (auto-saved on any message)</li>
+      <li><b>/templates</b> - manage templates(support variables) (add / edit / delete)</li>
+      <li><b>/users</b> - manage whitelist (add / list / delete)</li>
+      <li><b>/myid</b> - return Telegram ID and username</li>
+      <li><b>/sendNotification</b> - step-by-step flow:
+        <ul>
+          <li>Select template</li>
+          <li>Select chat(s)</li>
+          <li>Enter variables</li>
+          <li>Preview</li>
+          <li>Confirm sending (yes/no)</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Deployment</h3>
+    <ul>
+      <li>The bot is currently hosted locally.</li>
+      <li>The computer/server running it must remain powered on and connected to the internet.</li>
+      <li>For continuous availability, it can be deployed to a VPS or cloud production server.</li>
+    </ul>
+  </div>
+
+</body>
+</html>

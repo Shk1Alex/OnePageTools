@@ -79,6 +79,14 @@
             <a href="#" class="example-link" data-image="images/send-notification.png">Send Notification Example</a>
           </div>
         </div>
+        <div class="card">
+  <a class="tool-link" href="#" data-action="custom-links">
+    Custom Useful Links ↗
+  </a>
+  <p class="tool-desc">
+    Personal saved links list (stored in your browser)
+  </p>
+</div>
       </div>
 
       <div class="hint">
@@ -95,9 +103,37 @@
         </div>
 
         <div class="modal-content">
-          <iframe class="modal-iframe" id="modalFrame" title="Tool preview"></iframe>
-          <img class="modal-image" id="modalImage" alt="Example preview" />
-        </div>
+  <iframe class="modal-iframe" id="modalFrame" title="Tool preview"></iframe>
+  <img class="modal-image" id="modalImage" alt="Example preview" />
+  <div class="modal-custom" id="modalCustom">
+  <div class="custom-links">
+    <div class="custom-links-header">
+      <div class="custom-links-title">Custom Useful Links</div>
+      <div class="custom-links-actions">
+        <button class="icon-btn" type="button" id="addLinkBtn">Add link</button>
+      </div>
+    </div>
+
+    <div class="form" id="linkForm">
+      <div class="field">
+        <div class="label">Name</div>
+        <input class="input" id="linkName" type="text" />
+      </div>
+      <div class="field">
+        <div class="label">URL</div>
+        <input class="input" id="linkUrl" type="text" />
+      </div>
+      <div class="error" id="formError"></div>
+      <div class="form-actions">
+        <button class="btn" type="button" id="saveLinkBtn">Save</button>
+        <button class="btn" type="button" id="cancelLinkBtn">Cancel</button>
+      </div>
+    </div>
+
+    <ul class="custom-links-list" id="linksList"></ul>
+  </div>
+</div>
+</div>
       </div>
     </div>
 
